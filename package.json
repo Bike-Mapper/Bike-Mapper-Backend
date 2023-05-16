@@ -1,17 +1,17 @@
 {
-  "name": "mongoose-express-ts",
+  "name": "bike-mapper-backend",
   "version": "1.0.0",
-  "description": "Mongoose Node.js Express TypeScript application boilerplate with best practices for API development.",
-  "author": "Paul Cham",
-  "license": "MIT",
+  "description": "Bike Mapper Backend",
+  "author": "",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "tsc": "tsc",
     "watch-tsc": "tsc -w",
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
-    "server": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\"",
-    "start": "npm run deploy",
-    "heroku-postbuild": "npm run tsc"
+    "server": "concurrently \"yarn run watch-tsc\" \"yarn run watch-deploy\"",
+    "start": "yarn run deploy",
+    "heroku-postbuild": "yarn run tsc"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -34,5 +34,7 @@
     "@types/mongoose": "^5.11.97",
     "concurrently": "^7.4.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:Bike-Mapper/Bike-Mapper-Backend.git"
 }
