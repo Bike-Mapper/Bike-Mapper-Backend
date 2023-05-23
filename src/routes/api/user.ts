@@ -34,17 +34,17 @@ router.post(
 
     const { email, password } = req.body;
     try {
-      let user: IUser = await User.findOne({ email });
+      // let user: IUser = await User.findOne({ email });
 
-      if (user) {
-        return res.status(HttpStatusCodes.BAD_REQUEST).json({
-          errors: [
-            {
-              msg: "User already exists",
-            },
-          ],
-        });
-      }
+      // if (user) {
+      //   return res.status(HttpStatusCodes.BAD_REQUEST).json({
+      //     errors: [
+      //       {
+      //         msg: "User already exists",
+      //       },
+      //     ],
+      //   });
+      // }
 
       const options: gravatar.Options = {
         s: "200",
@@ -64,9 +64,15 @@ router.post(
         avatar,
       };
 
-      user = new User(userFields);
+      let user = new User(userFields);
 
-      await user.save();
+      console.log("AAAA");
+
+      await User.create(user);
+
+      // await user.save();
+
+      console.log("BBBB");
 
       const payload: Payload = {
         userId: user.id,

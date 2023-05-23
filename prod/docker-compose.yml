@@ -24,7 +24,7 @@ services:
       - ${MONGO_PORT}:${MONGO_PORT}
 
     volumes:
-      - be_upp_db_mongo:/data/db
+      - bike_mapper_db_mongo:/data/db
 
   mongo-express:
 
@@ -64,6 +64,9 @@ services:
 
     image: bike-mapper/api
 
+    links:
+      - mongo
+
     container_name: bike-mapper-api
 
     volumes:
@@ -83,36 +86,36 @@ services:
     networks:
       - bike-mapper
 
-  app:
+  # app:
 
-    build:
-      dockerfile: ./dockerfiles/Dockerfile-app
-      context: .
+  #   build:
+  #     dockerfile: ./dockerfiles/Dockerfile-app
+  #     context: .
 
-    image: bike-mapper/app
+  #   image: bike-mapper/app
 
-    container_name: bike-mapper-app
+  #   container_name: bike-mapper-app
 
-    volumes:
-      - ./entrypoints/entrypoint-app.sh:/usr/local/bin/entrypoint.sh
+  #   volumes:
+  #     - ./entrypoints/entrypoint-app.sh:/usr/local/bin/entrypoint.sh
 
-    working_dir: /bike-mapper
+  #   working_dir: /bike-mapper
 
-    command: entrypoint.sh
+  #   command: entrypoint.sh
 
-    environment:
-      PORT: ${REACT_APP_PORT}
-      REACT_APP_API_DOMAIN: ${REACT_APP_API_DOMAIN}
-      REACT_APP_API_PORT: ${API_PORT}
+  #   environment:
+  #     PORT: ${REACT_APP_PORT}
+  #     REACT_APP_API_DOMAIN: ${REACT_APP_API_DOMAIN}
+  #     REACT_APP_API_PORT: ${API_PORT}
 
-    ports:
-      - ${REACT_APP_PORT}:${REACT_APP_PORT}
+  #   ports:
+  #     - ${REACT_APP_PORT}:${REACT_APP_PORT}
 
-    networks:
-      - bike-mapper
+  #   networks:
+  #     - bike-mapper
 
 volumes:
-  be_upp_db_mongo:
+  bike_mapper_db_mongo:
 
 networks:
   bike-mapper:

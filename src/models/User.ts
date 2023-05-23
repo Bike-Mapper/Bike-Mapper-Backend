@@ -1,4 +1,4 @@
-import { Document, model, Schema } from "mongoose";
+import mongoose, { Document, model, Schema } from "mongoose";
 
 /**
  * Type to model the User Schema for TypeScript.
@@ -53,7 +53,10 @@ const userSchema: Schema = new Schema({
  * @param password:string
  * @param avatar:string
  */
-
+console.log("ççççççç");
 const User = model<IUser>("User", userSchema);
 
+mongoose.model('User', userSchema);
+
 export default User;
+// export default {User, userSchema};

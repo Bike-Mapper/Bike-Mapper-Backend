@@ -1,15 +1,24 @@
+import "../config/database";
 import bodyParser from "body-parser";
 import express from "express";
 
-import connectDB from "../config/database";
 import auth from "./routes/api/auth";
 import user from "./routes/api/user";
 import profile from "./routes/api/profile";
+import connectDB from "../config/database";
+// import userSchema from "./models/User";
+
+const mongoose = require('mongoose');
 
 const app = express();
 
 // Connect to MongoDB
+
 connectDB();
+console.log("gggggggg");
+
+// mongoose.model('User', userSchema);
+// await mongoose.model('User').findOne();
 
 // Express configuration
 app.set("port", process.env.API_PORT);

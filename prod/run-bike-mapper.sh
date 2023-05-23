@@ -12,6 +12,8 @@ function _main
         cp "${path}/.env-example" .env
     fi
 
+    cat .env
+
     sed -i 's/\r$//' "$env_file_path"
     source $env_file_path
 
@@ -32,13 +34,13 @@ function _main
         docker-compose build api
     fi
 
-    image_name="bike-mapper/app:latest"
-    if [[ "$(docker images -q $image_name 2> /dev/null)" == "" ]]; then
-        docker-compose build app
-    fi
+    # image_name="bike-mapper/app:latest"
+    # if [[ "$(docker images -q $image_name 2> /dev/null)" == "" ]]; then
+    #     docker-compose build app
+    # fi
 
     docker-compose up -d
-    docker-compose logs -f api app
+    docker-compose logs -f api # app
 }
 
 _main
