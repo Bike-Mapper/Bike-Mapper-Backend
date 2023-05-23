@@ -12,6 +12,8 @@ function _main
         cp "${path}/.env-example" .env
     fi
 
+    cat .env
+
     sed -i 's/\r$//' "$env_file_path"
     source $env_file_path
 
@@ -38,7 +40,7 @@ function _main
     fi
 
     docker-compose up -d
-    docker-compose logs -f api app
+    docker-compose logs -f api # app
 }
 
 _main

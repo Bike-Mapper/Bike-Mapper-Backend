@@ -1,19 +1,25 @@
 #!/bin/bash
 
-echo "[BE-UPP][INFO ] Container be-upp-app started"
+echo "[BIKE-MAPPER][INFO ] Container bike-mapper-app started"
 
 # get source files
-mkdir -p /be-upp && cd /be-upp
-git clone https://github.com/BE-UPP/be-upp-frontend.git app && cd app/frontend
+mkdir -p /bike-mapper && cd /bike-mapper
 
-if test -f "/be-upp/app/frontend/.env"; then
-    rm /be-upp/app/frontend/.env
+# rm -rf app
+git clone https://github.com/Bike-Mapper/Bike-Mapper-Frontend.git app 
+cd app/photo-gallery
+
+if test -f "/bike-mapper/app/photo-gallery/.env"; then
+    rm /bike-mapper/app/photo-gallery/.env
 fi
 
 # install project dependencies
 npm install
+npm install -g n
 
+n lts
 # start app
+npm build
 npm start
 
 tail -f /dev/null

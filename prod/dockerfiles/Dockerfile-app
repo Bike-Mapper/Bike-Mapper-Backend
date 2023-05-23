@@ -1,9 +1,11 @@
-FROM ubuntu:latest
+FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
 #RUN chmod o+r /etc/resolv.conf
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update 
+RUN apt-get install -y \
     git \
-    npm
+    npm \
+    wget
