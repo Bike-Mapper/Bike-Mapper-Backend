@@ -24,7 +24,7 @@ services:
       - ${MONGO_PORT}:${MONGO_PORT}
 
     volumes:
-      - ./bike_mapper_db_mongo:/data/db
+      - ../bike_mapper_db_mongo:/data/db
 
   mongo-express:
 

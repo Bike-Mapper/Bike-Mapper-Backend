@@ -21,6 +21,14 @@ app.set("port", process.env.API_PORT);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+// app.use(express.static(__dirname + '/app'));
+
+app.get('*', function(req, res, next) {
+  res.sendFile(__dirname + '/../../app/photo-gallery/www/index.html');
+});
+
+
 // @route   GET /
 // @desc    Test Base API
 // @access  Public

@@ -53,7 +53,6 @@ const userSchema: Schema = new Schema({
  * @param password:string
  * @param avatar:string
  */
-console.log("ççççççç");
 const User = model<IUser>("User", userSchema);
 
 mongoose.model('User', userSchema);
