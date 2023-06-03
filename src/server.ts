@@ -24,9 +24,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(express.static(__dirname + '/app'));
 
-app.get('*', function(req, res, next) {
-  res.sendFile(__dirname + '/../../app/photo-gallery/www/index.html');
-});
+// app.get('/', function(req, res, next) {
+//   res.sendFile(__dirname + '/../../app/photo-gallery/www/index.html');
+// });
 
 
 // @route   GET /
