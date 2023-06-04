@@ -99,6 +99,7 @@ services:
 
     volumes:
       - ./entrypoints/entrypoint-app.sh:/usr/local/bin/entrypoint.sh
+      - ../../front:/app/
 
     working_dir: /bike-mapper
 

@@ -1,6 +1,7 @@
 import "../config/database";
 import bodyParser from "body-parser";
 import express from "express";
+import cors from "cors";
 
 import auth from "./routes/api/auth";
 import user from "./routes/api/user";
@@ -18,6 +19,7 @@ connectDB();
 
 // Express configuration
 app.set("port", process.env.API_PORT);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
