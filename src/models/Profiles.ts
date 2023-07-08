@@ -14,6 +14,7 @@ export type TProfile = {
   firstName: string;
   lastName: string;
   username: string;
+  score: number;
 };
 
 /**
@@ -50,6 +51,10 @@ const profileSchema: Schema = new Schema({
   date: {
     type: Date,
     default: Date.now,
+  },
+  score: {
+    type: Number,
+    default: 0
   },
 });
 
