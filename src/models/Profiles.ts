@@ -1,5 +1,6 @@
 import { Document, model, Schema } from "mongoose";
 import { IUser } from "./User";
+import { ICompany } from "./Company";
 
 /**
  * Type to model the Profile Schema for TypeScript.
@@ -15,6 +16,7 @@ export type TProfile = {
   lastName: string;
   username: string;
   score: number;
+  cupons: [ICompany["_id"]];
 };
 
 /**
@@ -55,6 +57,10 @@ const profileSchema: Schema = new Schema({
   score: {
     type: Number,
     default: 0
+  },
+  cupons: {
+    type: Array<Schema.Types.ObjectId>,
+    default: []
   },
 });
 

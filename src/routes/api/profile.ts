@@ -34,6 +34,36 @@ router.get("/me", auth, async (req: Request, res: Response) => {
   }
 });
 
+// @route   GET api/profile/me
+// @desc    Get current user's profile
+// @access  Private
+router.get("/cupons", auth, async (req: Request, res: Response) => {
+  try {
+    const profile: IProfile = await Profile.findOne({
+      user: req.userId,
+    }).populate("user", ["cupons"]);
+
+    if (!profile) {
+      return res.status(HttpStatusCodes.BAD_REQUEST).json({
+        errors: [
+          {
+            msg: "There is no profile for this user",
+          },
+        ],
+      });
+    }
+
+    for( let company of profile.cupons) {
+      a
+    }
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).send("Server Error");
+  }
+});
+
 // @route   POST api/profile
 // @desc    Create or update user's profile
 // @access  Private

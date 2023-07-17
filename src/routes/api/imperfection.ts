@@ -61,6 +61,7 @@ router.post(
         let long2 = imperfection.coords[1] as number;
         
         if(distance(lat, long, lat2, long2) < MIN_DISTANCE ) {
+          console.log("FFF");
           return res.json(imperfection);
         }
       }

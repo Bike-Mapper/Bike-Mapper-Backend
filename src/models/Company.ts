@@ -10,8 +10,9 @@ import mongoose, { Document, model, Schema } from "mongoose";
 export type TCompany = {
   name: string;
   description: string;
-  price: string;
+  price: number;
   image_path: string;
+  url: string;
 };
 
 /**
@@ -34,11 +35,16 @@ const companySchema: Schema = new Schema({
     required: true,
   },
   price: {
-    type: String,
+    type: Number,
   },
   image_path: {
     type: String,
     default: "https://picsum.photos/512/512?random=9"
+
+  },
+  url: {
+    type: String,
+    default: "https://exemplo-empresa.com.br"
 
   },
 });
